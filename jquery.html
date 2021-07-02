@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="insert.php" method="post" id="details">
+
+
+        <p id="user_name">Username: <input type="text" name="user_name" id="user_name" /></p>
+        <p id="password">Password: <input type="password" name="tax" id="tax" /></p>
+        <p><input type="submit" name="submit" id="submit" value="submit" /></p>
+    </form>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#details').submit(function (e) {
+               
+                $.ajax({
+                    type: "POST",
+                    url: "insert.php",
+                    data: $('#myform').serialize(),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                })
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script src="js/test.js"></script>
+</body>
+
+</html>
